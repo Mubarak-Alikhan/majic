@@ -1,0 +1,181 @@
+@import url(root.css);
+
+/*===BACKGROUND COLOR ===*/
+
+
+/*=== FONT FAMILY ==*/
+
+.font-1 {
+    font-family: var(--font-Poppins);
+}
+
+
+/*=== BUTTON & LINK(anchor)===*/
+
+a {
+    transition: 0.4s;
+}
+
+.btn-1 {
+    background-color: var(--red);
+    color: #fff !important;
+    padding: 15px 25px;
+    border: 0;
+    font-weight: 600;
+    font-family: var(--font-Poppins);
+}
+
+.btn-1:hover {
+    background-color: var(--black) !important;
+}
+
+.btn-2 {
+    background-color: #fff;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    color: var(--black);
+}
+
+.btn-2:hover {
+    background-color: var(--black) !important;
+    color: #fff;
+}
+
+.btn-2:hover svg path {
+    fill: #fff;
+}
+
+.btn-3 {
+    background-color: #171717;
+    color: #fff;
+    padding: 16px 70px;
+    display: inline-block;
+}
+
+.btn-3:hover {
+    background-color: var(--red);
+    color: #fff;
+}
+
+
+/*=== FONT-SIZE ===*/
+
+.fs-80 {
+    font-size: 80px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+.fs-50 {
+    font-size: 50px;
+}
+
+
+/*=== COLOR ===*/
+
+.text-red {
+    color: var(--red);
+}
+
+.text-black-2 {
+    color: var(--color-black-2);
+}
+
+.text-blue {
+    color: var(--color-blue);
+}
+
+.text-grey {
+    color: var(--grey);
+}
+
+
+/*=== Z-index ===*/
+
+.index-1 {
+    z-index: 1;
+}
+
+
+/*=== LINE HEIGHT ===*/
+
+.line-height-26 {
+    line-height: 26px;
+}
+
+.line-height-60 {
+    line-height: 60px;
+}
+
+.line_height_1_5 {
+    line-height: 1.5 !important;
+}
+
+
+/*=== Font Weight ===*/
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+
+/*=== BORDER ====*/
+
+.border-dark {
+    border-color: var(--grey) !important;
+}
+
+.rounded-10 {
+    border-radius: 10px;
+}
+
+.height-60 {
+    height: 60px;
+}
+
+.mr-30 {
+    margin-right: 30px;
+}
+
+.ml-30 {
+    margin-left: 30px;
+}
+
+.height-50 {
+    height: 50px;
+}
+
+.border-black {
+    border: 1px solid var(--color-black-2);
+}
+
+
+/*==== Box shadwo ===*/
+
+.boxShadow {
+    filter: drop-shadow(3px 3px 40px rgba(0, 0, 0, 0.1));
+}
+
+
+/*===line-through==*/
+
+.line-through {
+    text-decoration: line-through;
+}

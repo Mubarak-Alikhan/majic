@@ -1,0 +1,101 @@
+@extends('admin.layout.main') @section('main')
+<div id="layoutSidenav">
+    @include('admin.layout.inc.side-nav')
+
+    <div id="layoutSidenav_content">
+        <div class="container">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Products List</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item">
+                                    <a href="">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="{{ route('product.add') }}">Add-Products</a>
+                                </li>
+                                <li class="breadcrumb-item active">Add</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>product-Nmae</td>
+                        <td>Description</td>
+                        <td>Material</td>
+                        <td>selling_price</td>
+                        <td>Last_price</td>
+                        <td>Slug</td>
+                        <td>status</td>
+                        <td>view</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    Total Products:-{{ $products->total() }}
+
+                    @foreach ($products as $product)
+                    <tr>
+                        <th scope="row">{{ $product->id }}</th>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->description }}</td>
+                        <td>{{ $product->material }}</td>
+                        <td>{{ $product->selling_price }}</td>
+                        <td>{{ $product->last_price }}</td>
+                        <td>{{ $product->slug }}</td>
+                        <td>
+                            @if ($product->status == 1)
+                            <span class="badge bg-success">{{
+                                __("Active")
+                            }}</span>
+                            @else
+                            <span class="badge bg-danger">{{
+                                __("Deactive")
+                            }}</span>
+                            @endif
+                        </td>
+                        <td><a class="btn btn-info" href="">view</a></td>
+                        <td>
+                            <a class="btn btn-primary" href="{{ route('product.edit', $product->id)}}">EDIT</a>
+                        </td>
+                        <td>
+                            <!-- <form action="{{route('product.destory', $product->id)}}" method="post">
+                                <input type="hidden" name="_method" value="DELETE">
+                                @csrf
+                                <button id="btnDelete" class="btn btn-danger btn-sm">Delete</button>
+                            </form> -->
+                            <form method="POST" action="{{route('product.destory', $product->id)}}">
+                                @csrf
+                                <input name="_method" type="hidden" value="DELETE" />
+                                <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <div class="col-12">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item pagination_custom">
+                            {{ $products->links() }}
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
