@@ -1,4 +1,5 @@
 @extends('layouts.main') @section('main')
+@section('title', 'aboutpage')
 <section class="py-md-5 py-3">
     <div class="container">
         <div class="row">

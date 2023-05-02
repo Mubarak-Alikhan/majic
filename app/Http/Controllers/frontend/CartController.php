@@ -66,7 +66,7 @@ class CartController extends Controller
 	{
 		if (session()->exists('cart')) {
 			$cart = session()->get('cart');
-			$product = Product::whereIn('id', $cart)->get();
+			$product = Product::where('id', $cart)->get();
 
 			return view('pages.cart', compact('product'));
 		} else {

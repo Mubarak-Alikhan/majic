@@ -47,6 +47,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
       Route::get('/edit/{id}', 'edit')->name('category.edit');
       Route::put('/update/{id}', 'update')->name('category.update');
       Route::delete('/destory/{id}', 'destory')->name('category.destory');
+      Route::get('/table', 'page')->name('category.table');
     });
   //coupons
   Route::controller(\App\Http\Controllers\admin\CouponController::class)

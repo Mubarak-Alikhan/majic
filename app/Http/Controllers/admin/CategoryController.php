@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Validated;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
@@ -14,6 +15,10 @@ class CategoryController extends Controller
   public function index()
   {
     $categories = Category::Paginate(5);
+    foreach ($categories as $category) {
+      $category->editRoute = 'category.edit';
+      $category->destoryRoute = 'category.destory';
+    }
     return view('admin.category.index', compact('categories'));
   }
   public function add()
@@ -24,8 +29,8 @@ class CategoryController extends Controller
   {
     $rules = Validator::make($request->all(), [
       'name' => 'required'
-
     ]);
+
     if ($rules->fails()) {
       return back()->withErrors($rules);
     }
@@ -63,5 +68,11 @@ class CategoryController extends Controller
   {
     Category::find($id)->delete();
     return redirect('/admin/category/')->with('success', ' Record Delete successfully.');
+  }
+  public function  page()
+  {
+    $categories = new Category;
+    $categories = Schema::getColumnListing($categories->getTable());
+    return view('admin.table', compact('categories'));
   }
 }

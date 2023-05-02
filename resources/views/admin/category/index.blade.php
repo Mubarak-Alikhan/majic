@@ -26,57 +26,8 @@
                 <!-- /.container-fluid -->
             </section>
             <table class="table">
-                <thead>
-                    <tr>
-                        <td>ID</td>
-                        <td>Category</td>
-                        <td>Slug</td>
-                        <td>status</td>
-                        <td>view</td>
-                        <td>Edit</td>
-                        <td>Delete</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    Total Categories:-{{ $categories->total() }}
-
-                    @foreach ($categories as $category)
-                    <tr>
-                        <th scope="row">{{ $category->id }}</th>
-                        <td>{{ $category->name }}</td>
-                        <td>{{ $category->slug }}</td>
-                        <td>
-                            @if ($category->status == 1)
-                            <span class="badge bg-success">{{
-                                __("Active")
-                            }}</span>
-                            @else
-                            <span class="badge bg-danger">{{
-                                __("Deactive")
-                            }}</span>
-                            @endif
-                        </td>
-                        <td><a class="btn btn-info" href="">view</a></td>
-                        <td>
-                            <a class="btn btn-primary" href="{{ route('category.edit', $category->id)}}">EDIT</a>
-                        </td>
-                        <td>
-                            <!-- <form action="{{route('category.destory', $category->id)}}" method="post">
-                                <input type="hidden" name="_method" value="DELETE">
-                                @csrf
-                                <button id="btnDelete" class="btn btn-danger btn-sm">Delete</button>
-                            </form> -->
-                            <form method="POST" action="{{route('category.destory', $category->id)}}">
-                                @csrf
-                                <input name="_method" type="hidden" value="DELETE" />
-                                <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete">
-                                    Delete
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
+                @include('admin.table.head', ['collection' => collect(['ID', 'Name', 'Slug', 'Status', ''])])
+                @include('admin.table.body', ['elements' => $categories])
             </table>
 
             <div class="col-12">
@@ -91,4 +42,5 @@
         </div>
     </div>
 </div>
+
 @endsection

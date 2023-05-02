@@ -69,7 +69,7 @@
 
                 @endforeach
                 @else
-                Sorry !!! its empty..........
+                Sorry !!! its empty......
                
                 @endif
 
@@ -143,7 +143,7 @@
             <div class="modal-body my_modal_body">
                 <h1 class="text-center fw-500 fs-1">Reminder Activated!</h1>
                 <p class="fs-14 text-center line-height-26">
-                    You’ll receive reminders at <text message number> once/week for the next 30 days
+                    You’ll receive reminders at  once/week for the next 30 days
                 </p>
 
                 <div class="row justify-content-center mt-4 g-0">

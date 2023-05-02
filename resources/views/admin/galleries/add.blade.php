@@ -1,4 +1,7 @@
-@extends('admin.layout.main') @section('main')
+@extends('admin.layout.main') 
+@each('view.admin.category.index', $catgeories, 'catgeories')
+
+@section('main')
 <div id="layoutSidenav">
   @include('admin.layout.inc.side-nav')
 

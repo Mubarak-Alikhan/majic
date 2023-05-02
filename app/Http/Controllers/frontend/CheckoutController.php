@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\frontend;
 
+use session;
+use Stripe\Stripe;
 use App\Models\Cart;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+
 
 class CheckoutController extends Controller
 {
@@ -54,12 +57,13 @@ class CheckoutController extends Controller
 		}
 	}
 
+
 	public function cart()
 	{
 		if (session()->has('cart'))
 			$cart = Cart::create([
 				'user_id'       => auth()->user(),
-				'product_id'    => session('name'),
+				'product_id'    => session('product'),
 				'quantity'      => session('quantity'),
 				'amount'         => session('total')
 			]);

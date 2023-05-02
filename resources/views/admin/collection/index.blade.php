@@ -38,6 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                 
                     Total Categories:-{{ $collections->total() }}
 
                     @foreach ($collections as $collection)
